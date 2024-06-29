@@ -51,7 +51,7 @@ resource "aws_iam_role" "tf-role" {
         Condition = {
           StringEquals = {
             "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
-            "token.actions.githubusercontent.com:sub" = "repo:Natanaelvich/devops-ci-cd_nlw-rocketseat-24:ref:refs/heads/main"
+            "token.actions.githubusercontent.com:sub" = "repo:Natanaelvich/devops-iac_nlw-rocketseat-24:ref:refs/heads/main"
           }
         }
       }
