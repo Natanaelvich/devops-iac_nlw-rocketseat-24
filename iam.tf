@@ -58,6 +58,24 @@ resource "aws_iam_role" "tf-role" {
     ]
   })
 
+   inline_policy {
+    name = "tf-permissions"
+    policy = jsonencode({
+      Statement = [{
+        Sid      = "Statement1"
+        Action   = "ecr:*"
+        Effect   = "Allow"
+        Resource = "*"
+        },
+        {
+          Sid = "Statement2"
+          Action = "iam:*"
+          Effect   = "Allow"
+          Resource = "*"
+        },
+      ]
+    })
+  }
   tags = {
     IAC = "True"
   }
