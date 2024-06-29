@@ -58,7 +58,7 @@ resource "aws_iam_role" "tf-role" {
     ]
   })
 
-   inline_policy {
+  inline_policy {
     name = "tf-permissions"
     policy = jsonencode({
       Statement = [{
@@ -68,8 +68,8 @@ resource "aws_iam_role" "tf-role" {
         Resource = "*"
         },
         {
-          Sid = "Statement2"
-          Action = "iam:*"
+          Sid      = "Statement2"
+          Action   = "iam:*"
           Effect   = "Allow"
           Resource = "*"
         },
