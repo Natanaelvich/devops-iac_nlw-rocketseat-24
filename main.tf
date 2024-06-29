@@ -10,3 +10,23 @@ terraform {
 provider "aws" {
   region = "us-east-2"
 }
+
+resource "aws_s3_bucket" "terraform-state" {
+  bucket        = "natanaelvich-iac"
+  force_destroy = true
+
+  lifecycle {
+    prevent_destroy = true
+  }
+
+  tags = {
+    IAC = "True"
+  }
+}
+
+resource "aws_s3_bucket_versioning" "terraform-state" {
+  bucket = "natanaelvich-iac"
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
