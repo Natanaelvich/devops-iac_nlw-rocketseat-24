@@ -1,12 +1,12 @@
 resource "aws_ecr_repository" "natanaelvuch-ci-api" {
-    name = "natanaelvich-ci"
-    image_tag_mutability = "MUTABLE"
+  name                 = "natanaelvich-ci"
+  image_tag_mutability = "MUTABLE"
 
-    image_scanning_configuration {
-        scan_on_push = true
-    }
+  image_scanning_configuration {
+    scan_on_push = true
+  }
 
-    tags = {
-        IAC = "True"
-    }
+  tags = {
+    IAC = "True"
+  }
 }
