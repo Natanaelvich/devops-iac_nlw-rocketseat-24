@@ -36,6 +36,33 @@ resource "aws_iam_role" "app-runner-role" {
   }
 }
 
+resource "aws_iam_role" "tf-role" {
+  name = "tf-role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Action = "sts:AssumeRoleWithWebIdentity"
+        Principal = {
+          Federated = "arn:aws:iam::867118092958:oidc-provider/token.actions.githubusercontent.com"
+        }
+        Condition = {
+          StringEquals = {
+            "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
+            "token.actions.githubusercontent.com:sub" = "repo:Natanaelvich/devops-ci-cd_nlw-rocketseat-24:ref:refs/heads/main"
+          }
+        }
+      }
+    ]
+  })
+
+  tags = {
+    IAC = "True"
+  }
+}
+
 resource "aws_iam_role" "ecr-role" {
   name = "ecr-role"
 
