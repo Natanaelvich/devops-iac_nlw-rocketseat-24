@@ -1,4 +1,4 @@
-# DevOps CI/CD NLW Rocketseat 24
+# DevOps IAC NLW Rocketseat 24
 
 This project is focused on demonstrating Infrastructure as Code (IaC), Continuous Integration/Continuous Deployment (CI/CD), and AWS services.
 
