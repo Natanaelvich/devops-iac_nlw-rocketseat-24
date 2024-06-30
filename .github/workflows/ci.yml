@@ -18,16 +18,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Log Vars
-        run: echo ${{ secrets.AWS_REGION }}
 
       - name: Configure aws credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-region: us-east-2
-          role-to-assume: 'arn:aws:iam::867118092958:role/tf-role'
-        #   aws-region: ${{ secrets.AWS_REGION }}
-        #   role-to-assume: ${{ secrets.ROLE_ASSUME }}
+          aws-region: ${{ secrets.AWS_REGION }}
+          role-to-assume: ${{ secrets.ROLE_ASSUME }}
 
       - name: Setup terraform
         uses: 'hashicorp/setup-terraform@v3'
