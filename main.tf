@@ -5,6 +5,13 @@ terraform {
       version = "5.49.0"
     }
   }
+
+
+  backend "s3" {
+    bucket = "natanaelvich-iac"
+    key    = "state/terraform.tfstate"
+    region = "us-east-2"
+  }
 }
 
 provider "aws" {
