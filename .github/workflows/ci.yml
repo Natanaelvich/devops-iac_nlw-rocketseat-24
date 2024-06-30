@@ -19,7 +19,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Log Vars
-        run: echo ${{ secrets.AWS_REGION }} ${{ secrets.ROLE_ASSUME }} ${{ secrets.TF_VERSION }}
+        run: echo ${{ secrets.AWS_REGION }}
 
       - name: Configure aws credentials
         uses: aws-actions/configure-aws-credentials@v4
